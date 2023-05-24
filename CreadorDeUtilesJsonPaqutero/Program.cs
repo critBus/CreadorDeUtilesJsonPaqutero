@@ -42,6 +42,10 @@ namespace CreadorDeUtilesJsonPaqutero
                 new EventosConsola<DatosWorkedJS>("Crear Map Indice Alfabetico Peliculas")
                 );
 
+            CreadorDeDatosJS_Actores cre_Act = new CreadorDeDatosJS_Actores(
+                new EventosConsola<DatosWorkedJS>("Crear Map Actores")
+                );
+
             string carpeta = @"C:\_COSAS\temporal\experimentos\c";
             EscribirArchivos esc = new EscribirArchivos(
                 carpeta: new DirectoryInfo(carpeta)
@@ -83,15 +87,26 @@ namespace CreadorDeUtilesJsonPaqutero
                         ));
                 }
                 );
-            cre.addSiguiente(creInvP)
-                .addSiguiente(creInvP_Au)
-                .addSiguiente(creP_Alf)
-                .addSiguiente(esc);
-            cre.Start();
-            //creInvP.addSiguiente(esc);
-            //creInvP.Start();
+            cre_Act.addCompleted(
+                (v, t) => {
+                    esc.add(new ArchivoACrear(
+                        nombre: "DatosActoresMap"
+                        , extencion: ".js"
+                        , contenido: v.resultado
+                        ));
+                }
+                );
+            //cre.addSiguiente(creInvP)
+            //    .addSiguiente(creInvP_Au)
+            //    .addSiguiente(creP_Alf)
+            //    .addSiguiente(cre_Act)
+            //    .addSiguiente(esc);
+            //cre.Start();
+
+            cre_Act.addSiguiente(esc);
+            cre_Act.Start();
         }
-       
+
     }
 }
 

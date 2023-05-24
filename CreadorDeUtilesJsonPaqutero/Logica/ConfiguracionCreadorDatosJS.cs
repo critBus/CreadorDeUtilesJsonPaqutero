@@ -17,11 +17,14 @@ namespace CreadorDeUtilesJsonPaqutero.Logica
         public string variableMapIndiceInverso_SinActores;
         public string variableMapIndiceAlfabetico;
         public string variableMapIndiceInverso_ConActores;
+
+        public string variableMapActores;
         public ConfiguracionCreadorDatosJS()
         {
             bd = new BDManager_Admin("cinema");
             bd.no_cl();
             variableMapPeliculas = "mapPeliculas";
+            variableMapActores = "mapActores";
             variableMapIndiceInverso_SinActores = "mapPeliculasInverso_SinActores";
             variableMapIndiceInverso_ConActores = "mapPeliculasInverso_ConActores";
             variableMapIndiceAlfabetico = "mapPeliculas_IndiceAlfabetico";

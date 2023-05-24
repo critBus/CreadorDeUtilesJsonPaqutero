@@ -50,6 +50,8 @@ namespace CreadorDeUtilesJsonPaqutero.Logica.Tareas.CreadoresStr
             mr += separacion1 + "{";
             mr += separacion2 + "id:\"" + a.idkey + "\"";
             mr += separacion2 + ",nombre:`" + getStrCorrecto(a.nombre) + "`";
+            mr += separacion2 + ",fotoactor:`" + a.fotoactor + "`";
+            mr += separacion2 + ",mostrar:\"" + (a.mostrar??false).ToString().ToLower() + "\"";
             mr += separacion1 + "}";
             return mr;
         }
@@ -81,7 +83,11 @@ namespace CreadorDeUtilesJsonPaqutero.Logica.Tareas.CreadoresStr
             List<Actors_PG> la = p.getpeliculas_actor();
             foreach (Actors_PG a in la)
             {
-                mr += getStrActor(a, 2) + ",";
+                //mr += getStrActor(a, 2) + ",";
+                if (a.mostrar??false) {
+                    mr += "\"" + a.getIdkey() + "\"" + ",";
+                }
+                
             }
             mr += separacion2 + "]";
             mr += separacion1 + "}";

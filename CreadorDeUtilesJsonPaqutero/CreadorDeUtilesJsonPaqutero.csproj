@@ -65,6 +65,7 @@
     <Compile Include="Logica\ConfiguracionCreadorDatosJS.cs" />
     <Compile Include="Logica\CreadorDatosJSON.cs" />
     <Compile Include="Logica\Tareas\CreadoresStr\CreadorDeDatos.cs" />
+    <Compile Include="Logica\Tareas\CreadoresStr\CreadorDeDatosJS_Actores.cs" />
     <Compile Include="Logica\Tareas\CreadoresStr\CreadorDeDatosJS_Peliculas.cs" />
     <Compile Include="Logica\Tareas\CreadoresStr\CreadorIndiceAlfabetico_Peliculas.cs" />
     <Compile Include="Logica\Tareas\CreadoresStr\CreadorIndiceInverso_PeliculasConAutores.cs" />
